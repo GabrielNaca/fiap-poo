@@ -24,13 +24,25 @@ Para que a mochila deixe de ser apenas um molde de dados e passe a ter comportam
   * *Regra de negócio:* O peso a ser retirado deve ser válido (positivo) e não pode ser maior do que o peso que já está contido na mochila, impedindo que o `pesoAtual` fique negativo.
 
 ## 🚀 Como usar e testar
-No arquivo `SistemaPrincipal.java`, fazemos a instanciação e o teste prático da classe:
+No arquivo `SistemaPrincipal.java`, simulamos um ambiente de uso real criando múltiplas instâncias (mochilas diferentes) e interagindo com elas. 
 
+O sistema foi programado para imprimir um "painel" no console, formatado para exibir o estado atualizado de cada objeto de forma clara, semelhante a uma tabela de monitoramento, além de gerar logs de sucesso ou erro para cada ação.
+
+### Código de Exemplo (SistemaPrincipal):
 ```java
-// 1. Instanciando a mochila e definindo seus atributos fixos via construtor
+// 1. Instanciando duas mochilas diferentes
 Mochila minhaMochila = new Mochila("Cinza", "Nylon", 10);
+Mochila mochilaDoColega = new Mochila("Marrom", "Couro", 12);
 
-// 2. Usando os métodos para alterar o estado (pesoAtual)
-minhaMochila.guardarItem(5.0); // Sucesso: o peso atual passa a ser 5.0Kg
-minhaMochila.guardarItem(6.0); // Bloqueado: 11Kg ultrapassa a capacidade de 10Kg
-minhaMochila.retirarItem(2.0); // Sucesso: o peso atual cai para 3.0Kg
+// 2. Usando os métodos para interagir com o estado
+minhaMochila.guardarItem(5.0);
+mochilaDoColega.guardarItem(2.0);
+
+// 3. Exibindo o "Painel do Sistema" com o estado atualizado
+System.out.println("--- Sistema de Mochilas ---");
+System.out.println("Mochila: " + minhaMochila.cor + " | Peso Atual: " + minhaMochila.pesoAtual + "Kg | Capacidade: " + minhaMochila.capacidadeEmKg + "Kg");
+System.out.println("Mochila: " + mochilaDoColega.cor + " | Peso Atual: " + mochilaDoColega.pesoAtual + "Kg | Capacidade: " + mochilaDoColega.capacidadeEmKg + "Kg");
+
+// 4. Testando regras de negócio (Forçando uma validação de erro)
+minhaMochila.retirarItem(3.0); // Sucesso: retira 3Kg dos 5Kg disponíveis
+mochilaDoColega.retirarItem(5.0); // Bloqueado: tenta retirar 5Kg de onde só tem 2Kg
