@@ -35,14 +35,14 @@ Mochila minhaMochila = new Mochila("Cinza", "Nylon", 10);
 Mochila mochilaDoColega = new Mochila("Marrom", "Couro", 12);
 
 // 2. Usando os métodos para interagir com o estado
-minhaMochila.guardarItem(5.0);
-mochilaDoColega.guardarItem(2.0);
+minhaMochila.guardarItem(10.0);
+mochilaDoColega.guardarItem(3.0);
 
 // 3. Exibindo o "Painel do Sistema" com o estado atualizado
 System.out.println("--- Sistema de Mochilas ---");
-System.out.println("Mochila: " + minhaMochila.cor + " | Peso Atual: " + minhaMochila.pesoAtual + "Kg | Capacidade: " + minhaMochila.capacidadeEmKg + "Kg");
-System.out.println("Mochila: " + mochilaDoColega.cor + " | Peso Atual: " + mochilaDoColega.pesoAtual + "Kg | Capacidade: " + mochilaDoColega.capacidadeEmKg + "Kg");
+System.out.println("Mochila: " + minhaMochila.cor + " de " + minhaMochila.material + " | Peso Atual: " + minhaMochila.pesoAtual + "Kg | Capacidade: " + minhaMochila.capacidadeEmKg + "Kg");
+System.out.println("Mochila: " + mochilaDoColega.cor + " de " + mochilaDoColega.material + " | Peso Atual: " + mochilaDoColega.pesoAtual + "Kg | Capacidade: " + mochilaDoColega.capacidadeEmKg + "Kg");
 
 // 4. Testando regras de negócio (Forçando uma validação de erro)
-minhaMochila.retirarItem(3.0); // Sucesso: retira 3Kg dos 5Kg disponíveis
-mochilaDoColega.retirarItem(5.0); // Bloqueado: tenta retirar 5Kg de onde só tem 2Kg
+minhaMochila.retirarItem(3.0); // Sucesso: retira 3Kg dos 10Kg disponíveis, sendo assim o Peso Atual = 7Kg
+mochilaDoColega.retirarItem(5.0); // Bloqueado: tenta retirar 5Kg de onde só tem 3Kg
