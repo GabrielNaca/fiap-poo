@@ -44,5 +44,5 @@ System.out.println("Mochila: " + minhaMochila.cor + " de " + minhaMochila.materi
 System.out.println("Mochila: " + mochilaDoColega.cor + " de " + mochilaDoColega.material + " | Peso Atual: " + mochilaDoColega.pesoAtual + "Kg | Capacidade: " + mochilaDoColega.capacidadeEmKg + "Kg");
 
 // 4. Testando regras de negócio (Forçando uma validação de erro)
-minhaMochila.retirarItem(3.0); // Sucesso: retira 3Kg dos 10Kg disponíveis, sendo assim o Peso Atual = 7Kg
+minhaMochila.retirarItem(3.0); // Sucesso: retira 3Kg dos 10Kg disponíveis, sendo assim o Peso Atual é de 7Kg
 mochilaDoColega.retirarItem(5.0); // Bloqueado: tenta retirar 5Kg de onde só tem 3Kg
