@@ -1,16 +1,16 @@
 package br.com.fiapride.model;
 
 public class Mochila {
-    public String cor;
-    public String material;
-    public int capacidadeEmKg;
-    public double pesoAtual;
+    private String cor;
+    private String material;
+    private int capacidadeEmKg;
+    private double pesoAtual;
 
     public Mochila(String cor, String material, int capacidadeEmKg) {
-        this.cor = cor;
-        this.material = material;
-        this.capacidadeEmKg = capacidadeEmKg;
-        this.pesoAtual = 0.0;
+        this.setCor(cor);
+        this.material = material; 
+        this.setCapacidadeEmKg(capacidadeEmKg); 
+        this.pesoAtual = 0.0; 
     }
 
     public void guardarItem(double pesoItem) {
@@ -22,7 +22,7 @@ public class Mochila {
             System.out.println("Erro: Capacidade excedida! A mochila não suporta este item.");
             return;
         }
-        this.pesoAtual += pesoItem;
+        this.pesoAtual += pesoItem; 
         System.out.println("Item guardado com sucesso. Peso atual: " + this.pesoAtual + "Kg");
     }
 
@@ -37,5 +37,33 @@ public class Mochila {
         }
         this.pesoAtual -= pesoItem;
         System.out.println("Item retirado com sucesso. Peso atual: " + this.pesoAtual + "Kg");
+    }
+
+    public String getCor() { 
+        return this.cor; 
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getMaterial() { 
+        return this.material; 
+    }
+
+    public int getCapacidadeEmKg() { 
+        return this.capacidadeEmKg; 
+    }
+
+    public void setCapacidadeEmKg(int capacidadeEmKg) {
+        if (capacidadeEmKg > 0 && capacidadeEmKg <= 50) {
+            this.capacidadeEmKg = capacidadeEmKg;
+        } else {
+            System.out.println("Erro de Segurança: A capacidade informada (" + capacidadeEmKg + "Kg) é inválida. Deve ser entre 1 e 50Kg.");
+        }
+    }
+
+    public double getPesoAtual() { 
+        return this.pesoAtual; 
     }
 }
